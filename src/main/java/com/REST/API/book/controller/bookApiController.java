@@ -40,4 +40,8 @@ public class bookApiController {
        return bookService.edit(request).orElseThrow(ResourceNotFound::new);
 
    }
+   @DeleteMapping("/api/REST/v1/books/{id}")
+    public Boolean delete(@PathVariable("id") Integer id){
+        return  bookService.delete(id);
+   }
 }

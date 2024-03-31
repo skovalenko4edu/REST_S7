@@ -51,4 +51,13 @@ public class bookService {
         return Optional.of(oldBookEntity);
 
     }
+    public Boolean delete(Integer id){
+        Optional<bookEntity> book = byId(id);
+        if(book.isEmpty()){
+            return false;
+        }
+        bookStorage.remove(book.get());
+        return true;
+
+    }
 }
