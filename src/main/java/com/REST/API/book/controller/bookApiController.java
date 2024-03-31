@@ -35,4 +35,9 @@ public class bookApiController {
         return bookService.create(request.getTitle(), request.getDescriptions());
 
     }
+    @PutMapping("/api/REST/v1/books/{id}")
+   public bookEntity edit(@PathVariable Integer id, @RequestBody bookEntity request){
+       return bookService.edit(request).orElseThrow(ResourceNotFound::new);
+
+   }
 }
