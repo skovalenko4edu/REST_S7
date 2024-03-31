@@ -36,4 +36,12 @@ public class bookService {
         return bookStorage.stream().filter((book -> book.getId().equals(id))).findFirst();
 
     }
+    public bookEntity create(String title, String description){
+        bookEntity book = new bookEntity();
+        book.setId(bookStorage.size());
+        book.setTitle(title);
+        book.setDescriptions(description);
+        bookStorage.add(book);
+        return book;
+    }
 }
